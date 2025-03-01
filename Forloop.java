@@ -1,16 +1,20 @@
 import java.util.Scanner;
-public class ScannerDemo {
-
+public interface Forloop {
   public static void main(String[] args) {
     //build an object and use the Scanner Class
     Scanner sc = new Scanner(System.in);
-
     System.out.println("please input the first whole number:");
     //receive data and assign to i
-    int i1 = sc.nextInt();
+    int start = sc.nextInt();
     System.out.println("please input the second whole number:");
-    int i2 = sc.nextInt();
-
-    System.out.println("the total of two numbers is: " + (i1 + i2));
+    int end = sc.nextInt();
+    int count = 0;
+    // for loop
+    for (int i = start; i <= end; i++) {
+      if (i % 3 == 0 && i % 5 == 0) {
+        count ++;
+      }
+    }
+    System.out.println("total is: " + count);
   }
-} 
+}
