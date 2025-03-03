@@ -1,4 +1,5 @@
 import java.util.Scanner;
+ // compare the original number and the reversed number
 public class Palindromicnumber {
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
@@ -8,8 +9,7 @@ public class Palindromicnumber {
     int on = n;
     int right;
     int rn = 0;
-    //split input number
-    // get the reversed number
+    //reversing number
     while (n>0) {
       right = n % 10;
       n = n / 10;
@@ -19,7 +19,7 @@ public class Palindromicnumber {
     if (on == rn){
       System.out.println(rn + " this is a palindromic number");
     } else {
-      System.out.println(rn + " this is not a palindromic number");
+      System.out.println(on + " this is not a palindromic number");
     }
   }
 
