@@ -8,11 +8,33 @@ public class Quotientsremainders {
     int divisor = sc.nextInt();
     int q = 0;
     int r = dividend;
-    while (r > divisor) {
-      r = r - divisor;
-      q++;
+    if ( dividend > 0 && divisor > 0) {
+      while (r >= divisor) {
+        r = r - divisor;
+        q++;
+      }
     }
+    else if ( dividend < 0 && divisor < 0) {
+      while (r <= divisor) {
+        r = r - divisor;
+        q++;
+      }
+    }
+    else if ( dividend < 0 && divisor > 0) {
+      while (r <= divisor) {
+        r = r + divisor;
+        q--;
+      }
+    }
+    else if ( dividend > 0 && divisor < 0) {
+      while (r >= divisor) {
+        r = r + divisor;
+        q--;
+      }
+   }
+  
     System.out.println("Quotient: " + q +" or "+ (dividend / divisor));
     System.out.println("Remainder: " + r +" or "+ (dividend % divisor));
   }
 }
+
