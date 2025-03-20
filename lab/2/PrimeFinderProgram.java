@@ -1,16 +1,24 @@
+import java.util.Scanner;
 public class PrimeFinderProgram {
-  PrimeFinder pf = new PrimeFinder();
-  public int countPrimes(int start, int end){
-    int count = 0;
-    if (start > end) {
-      System.out.println("Start number must be less than end number.");
-      return -1;}
-    //for 循环的初始化部分（第一个分号前）不能直接写变量，需要重新赋值：
-    for (int i = start; i <= end; i++) {
-      if (pf.isPrime(i)) {
-        count++;
-      }
-    }
-    return count;
+  public static void main(String[] args) {
+    PrimeFinder pf = new PrimeFinder();
+    Scanner sc = new Scanner(System.in);
+    System.out.println("Enter a number: ");
+    int num = sc.nextInt();
+    System.out.println("Is prime? " + pf.isPrime(num));
+        
+  
+
+    //use second method to count
+    PrimeFinder count = new PrimeFinder();
+    System.out.println("Count the number of prime numbers between two numbers.");
+    System.out.println("Enter a start number: ");
+    int numS = sc.nextInt();
+    System.out.println("Enter a end number: ");
+    int numE = sc.nextInt();
+  
+    System.out.println("There are " + count.countPrimes(numS, numE)+" prime numbers between "+numS+" and "+numE); 
+    //sc.close();
   }
+  
 }
