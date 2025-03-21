@@ -9,5 +9,6 @@ public class Email {
     this.subject = subject;
     this.sender = sender;
     this.message = message;
+    
   }
 }

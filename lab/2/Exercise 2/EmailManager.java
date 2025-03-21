@@ -8,8 +8,7 @@ public class EmailManager {
     }
 
     public void addEmail(Email email) {
-      Email email = new Email(subject, sender, message);
-        emails.add(email.);
+        emails.add(email);
     }
 
     public void printEmails() {
@@ -21,7 +20,13 @@ public class EmailManager {
     }
 
     public ArrayList<Email> getEmailsLongerThan(int minMessageLength) {
-        // TODO
+        ArrayList<Email> longEmails = new ArrayList<>();
+        for (Email email : emails) {
+            if(email.message.length() > minMessageLength){
+                longEmails.add(email) ;
+            }
+        }
+        return longEmails;
     }
 
     public static void main(String[] args) {
