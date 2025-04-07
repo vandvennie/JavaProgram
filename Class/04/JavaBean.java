@@ -1,15 +1,15 @@
 //package Class.04;
 
 public class JavaBean {
+  //属性声明（字段）
   private String userName;
   private String password;
-  private String comPassword;
   private String email;
   private String gender;
   private int age;
 
   //shortcut: alt+insert or alt+fn+insert ，但没有找到
-  //plug—in PTG: Build JavaBean
+  //Getter 和 Setter 方法
   public void setUserName(String userName){
     this.userName = userName;
   }
@@ -22,13 +22,6 @@ public class JavaBean {
   }
   public String getPassword(){
     return password;
-  }
-
-  public void setComPassword(String comPassword){
-    this.comPassword = comPassword;
-  }
-  public String getComPassword(){
-    return comPassword;
   }
 
   public void setEmail(String email){
@@ -52,10 +45,11 @@ public class JavaBean {
     return age;
   }
 
-//build non-argument constructor
+//build non-argument constructor 无参构造器（必须有！）
+//不传参，方便创建一个空对象后慢慢 setXXX()。
   public JavaBean(){}
 
-//bulid parameterized constructor
+//bulid parameterized constructor 带参数构造器
   public JavaBean(String userName, String password, String email, String gender, int age){
     this.userName = userName;
     this.password = password;
