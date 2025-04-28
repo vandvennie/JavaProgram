@@ -1,3 +1,4 @@
+package ObjectOriented.a01Static;
 public class ArrUtil {
   //私有化构造方法
   private ArrUtil(){}

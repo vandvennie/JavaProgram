@@ -1,3 +1,4 @@
+package ObjectOriented.a01Static;
 public class Test {
   public static void main(String[] args){
     //测试工具类aStaticUtil中的两个方法是否正确
