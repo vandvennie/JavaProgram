@@ -1,39 +1,46 @@
 import java.util.ArrayList;
-
-public class ClassDatabase {
-  class StudentCourse {
-    private String student;
-    private String course;
-    StudentCourse (String student, String course){
-      this.student = student; 
-      this.course = course;
-    }
-    public String getStudent() {
-      return student;
-    }
-
-    public String getCourse() {
-        return course;
-    }
+class StudentCourse{
+  private String student;
+  private String course;
+  public StudentCourse(String student, String course) {
+    this.student=student;
+    this.course=course;
   }
-    private ArrayList<StudentCourse> db;
-    public ClassDatabase() {
-      db = new ArrayList<>();
-    }
+  public String getStudent() {
+    return student;
+  }
+  public void setStudent(String student) {
+    this.student = student;
+  }
+  public String getCourse() {
+    return course;
+  }
+  public void setCourse(String course) {
+    this.course = course;
+  }
+}
+ 
+public class ClassDatabase {
+  private String student;
+  private String course;
+  ArrayList<StudentCourse> sclist = new ArrayList<>();
+  public ClassDatabase() {
+ 
+  }
 
-    public void addCourseStudent(String student, String course) {
-      StudentCourse sc = new StudentCourse(student,course);
-      db.add(sc);
-    }
+  public void addCourseStudent(String student, String course) {
+    sclist.add(new StudentCourse(student, course));
+  }
 
-    public int countStudents(String course) {
-      int count =0;
-      for(int i=0; i<db.size(); i ++){
-        if ( db.get(i).getCourse().equals(course))
-          count++;
+  public int countStudents(String course) {
+    int sum = 0;
+    for (int i=0; i<sclist.size();i++){
+      if (sclist.get(i).getCourse().equals(course)){
+        sum++;
       }
-      return count;
     }
+    return sum;
+  }
 
     public static void main(String[] args) {
         ClassDatabase db = new ClassDatabase();
@@ -45,5 +52,21 @@ public class ClassDatabase {
         System.out.println(db.countStudents("CITS2005"));
         System.out.println(db.countStudents("CITS2200"));
         System.out.println(db.countStudents("CITS9999"));
+    }
+
+    public String getStudent() {
+      return student;
+    }
+
+    public String getCourse() {
+      return course;
+    }
+
+    public void setStudent(String student) {
+      this.student = student;
+    }
+
+    public void setCourse(String course) {
+      this.course = course;
     }
 }
