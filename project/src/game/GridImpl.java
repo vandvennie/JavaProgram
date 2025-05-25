@@ -2,16 +2,18 @@ package game;
 
 public class GridImpl implements Grid {
   private final int size;
-  private PieceColour[][] grid;
+  private final PieceColour[][] grid;
 
   
   public GridImpl(int size) {
-    if (size<0){
+    // Throws IllegalArgumentException if the size of the grid is negative
+    if (size<=0){
       throw new IllegalArgumentException("Size must be positive");
     }
     this.size = size;
     grid = new PieceColour [size][size];
-    // initialization this grid
+
+    // Initialization this grid
     for (int i=0; i<size; i++){
       for (int j=0; j<size; j++){
         grid[i][j] = PieceColour.NONE;
@@ -27,22 +29,27 @@ public class GridImpl implements Grid {
   @Override
   // Returns the piece at the given row and column
   // Should return PieceColour.NONE if the position is empty
-  // Throws IllegalArgumentException if the row or column is out of bounds
   public PieceColour getPiece(int row, int col){
+    // Throws IllegalArgumentException if the row or column is out of bounds
     if(row < 0 || row >= size || col < 0 || col >= size){
-      throw new IllegalArgumentException ("The row or column is out of bounds.");
+      throw new IllegalArgumentException (
+        String.format("Grid access out of bounds: (%d, %d)", row, col)
+      );
     }
-    if (grid[row][col]==null) {
-      grid[row][col]=PieceColour.NONE;
-    } 
     return grid[row][col];
-    
   }
 
   @Override
   // Sets the piece at the given row and column
-  // Throws IllegalArgumentException if the piece is not a valid colour
   public void setPiece(int row, int col, PieceColour piece){
+    // Throws IllegalArgumentException if the piece is out of bounds
+    if(row < 0 || row >= size || col < 0 || col >= size){
+      throw new IllegalArgumentException (
+        String.format("Row or col set out of bounds: (%d, %d)", row, col)
+      );
+    }
+
+    // Throws IllegalArgumentException if the piece is not a valid colour
     int flag = 0;
     for(PieceColour colour: PieceColour.values()){
       if (piece==colour){
@@ -50,10 +57,9 @@ public class GridImpl implements Grid {
       }
     }
     if (flag==0){
-      throw new IllegalArgumentException("The piece is not a valid colour.");
-    } else if(row < 0 || row >= size || col < 0 || col >= size){
-        throw new IllegalArgumentException ("The row or column is out of bounds.");
-    }
+      throw new IllegalArgumentException("This piece is not a valid colour.");
+    } 
+
     grid[row][col] = piece;
   } 
 
