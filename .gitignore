@@ -1,0 +1,15 @@
+# Ignore class files
+*.class
+
+# Ignore build directories
+/bin/
+/out/
+/build/
+/target/
+
+# Ignore logs
+*.log
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
