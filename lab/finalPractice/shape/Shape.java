@@ -1,3 +1,4 @@
+package shape;
 
 public abstract class Shape {
   protected String name;
