@@ -1,11 +1,19 @@
+import java.util.ArrayList;
+
 class Solution {
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
         int count = nums1.length+nums2.length;
-        int[] combine = new int[count];
+        ArrayList<Integer> combine =new ArrayList<>();
         double median;
 
-        if (nums1[0]<nums2[0]){
-          for ()
+        if (combine.size()< count){
+          int current=nums1[0];
+          for (int i =0; i<nums1.length; i++){
+            for (int j =0; j<nums2.length; j++){
+              current = (nums1[i]<nums2[j]) ? nums1[i]: nums2[i];
+              combine.add(current);
+            }
+          }
         }
 
         if (count%2 == 0){
